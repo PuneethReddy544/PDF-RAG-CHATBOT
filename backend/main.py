@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain_community.vectorstores import Chroma
 
 from dotenv import load_dotenv
@@ -59,7 +59,8 @@ app.add_middleware(
 # Embedding Model
 # =========================
 
-embedding_model = HuggingFaceEmbeddings(
+embedding_model = HuggingFaceInferenceAPIEmbeddings(
+    api_key=os.getenv("HUGGINGFACE_API_KEY"),
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
