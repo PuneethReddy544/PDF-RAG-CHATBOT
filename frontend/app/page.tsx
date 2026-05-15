@@ -6,7 +6,7 @@ import axios from "axios";
 export default function Home() {
 
   // Backend URL
-  const API_URL = "http://localhost:8000";
+  const API_URL = "https://pdf-rag-chatbot-2-um68.onrender.com";
 
   // States
   const [file, setFile] = useState<File | null>(null);
